@@ -1,0 +1,42 @@
+﻿@model Eogrenme.Areas.Admin.ViewModels.AdminIndex
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr id="@user.Id">
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@String.Join(", ", user.Roles.Select(p => p.Name))</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("edit",new { user.Id })" class="btn btn-xs btn-primary">
+                            <i class="glyphicon glyphicon-edit"></i>
+                            Edit
+                        </a>
+                        <a href="@Url.Action("resetpassword",new { user.Id })" class="btn btn-xs btn-primary">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            Reset Password
+                        </a>
+                        <a class="btn btn-xs btn-primary" onclick="KullaniciSil(@user.Id)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            Delete
+                        </a>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

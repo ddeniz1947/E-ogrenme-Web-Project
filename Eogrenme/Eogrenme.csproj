@@ -1,0 +1,362 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D66F1048-7664-4A3C-BC53-C05B3A90AC30}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eogrenme</RootNamespace>
+    <AssemblyName>Eogrenme</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BCrypt.Net, Version=0.1.4056.18965, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.107\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentMigrator.1.6.2\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Optimization.0.1\lib\net40\Microsoft.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.2.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\bootstrap.js" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
+    <None Include="Areas\Admin\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-1.10.2.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Areas\Admin\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\app.rtl.css" />
+    <Content Include="Content\css\bootstrap-touchspin.css" />
+    <Content Include="Content\css\bootstrap-touchspin.rtl.css" />
+    <Content Include="Content\css\dropzone.css" />
+    <Content Include="Content\css\dropzone.rtl.css" />
+    <Content Include="Content\css\fancytree.css" />
+    <Content Include="Content\css\fancytree.rtl.css" />
+    <Content Include="Content\css\flatpickr-airbnb.css" />
+    <Content Include="Content\css\flatpickr-airbnb.rtl.css" />
+    <Content Include="Content\css\flatpickr.css" />
+    <Content Include="Content\css\flatpickr.rtl.css" />
+    <Content Include="Content\css\fontawesome.css" />
+    <Content Include="Content\css\fontawesome.rtl.css" />
+    <Content Include="Content\css\fullcalendar.css" />
+    <Content Include="Content\css\jvectormap.css" />
+    <Content Include="Content\css\material-icons.css" />
+    <Content Include="Content\css\material-icons.rtl.css" />
+    <Content Include="Content\css\nestable.css" />
+    <Content Include="Content\css\nestable.rtl.css" />
+    <Content Include="Content\css\quill.css" />
+    <Content Include="Content\css\quill.rtl.css" />
+    <Content Include="Content\css\sweetalert.css" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-de-merc-en.js" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-es-merc-en.js" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-fr-merc-en.js" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-us-lcc-en.js" />
+    <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Content\data\vector-maps\custom\mall-map.js" />
+    <Content Include="Content\data\vector-maps\data\gdp-data.js" />
+    <Content Include="Content\images\256_rsz_90-jiang-640827-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_clem-onojeghuo-150467-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_florian-perennes-594195-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_james-gillespie-714755-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_karl-s-973833-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_nicolas-horn-689011-unsplash.jpg" />
+    <Content Include="Content\images\256_rsz_sharina-mae-agellon-377466-unsplash.jpg" />
+    <Content Include="Content\images\github.png" />
+    <Content Include="Content\images\gulp.png" />
+    <Content Include="Content\images\logo\primary.svg" />
+    <Content Include="Content\images\logo\white.svg" />
+    <Content Include="Content\images\nodejs.png" />
+    <Content Include="Content\images\people\110\guy-6.jpg" />
+    <Content Include="Content\images\people\110\guy-8.jpg" />
+    <Content Include="Content\images\people\110\guy-9.jpg" />
+    <Content Include="Content\images\people\110\woman-5.jpg" />
+    <Content Include="Content\images\people\50\guy-1.jpg" />
+    <Content Include="Content\images\people\50\guy-2.jpg" />
+    <Content Include="Content\images\people\50\guy-3.jpg" />
+    <Content Include="Content\images\people\50\guy-6.jpg" />
+    <Content Include="Content\images\people\50\woman-1.jpg" />
+    <Content Include="Content\images\people\50\woman-2.jpg" />
+    <Content Include="Content\images\people\50\woman-3.jpg" />
+    <Content Include="Content\images\people\50\woman-5.jpg" />
+    <Content Include="Content\images\stories\256_rsz_phil-hearing-769014-unsplash.jpg" />
+    <Content Include="Content\images\stories\256_rsz_ross-sneddon-798476-unsplash.jpg" />
+    <Content Include="Content\images\stories\256_rsz_thomas-russell-751613-unsplash.jpg" />
+    <Content Include="Content\images\visa.svg" />
+    <Content Include="Content\images\vuejs.png" />
+    <Content Include="Content\js\app-icons.js" />
+    <Content Include="Content\js\app-settings.js" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\chartjs-rounded-bar.js" />
+    <Content Include="Content\js\chartjs.js" />
+    <Content Include="Content\js\check-selected-row.js" />
+    <Content Include="Content\js\countdown.js" />
+    <Content Include="Content\js\dragula.js" />
+    <Content Include="Content\js\fancytree.js" />
+    <Content Include="Content\js\flatpickr.js" />
+    <Content Include="Content\js\fullcalendar.js" />
+    <Content Include="Content\js\hljs.js" />
+    <Content Include="Content\js\list.js" />
+    <Content Include="Content\js\messages.js" />
+    <Content Include="Content\js\nestable.js" />
+    <Content Include="Content\js\page.instructor-dashboard.js" />
+    <Content Include="Content\js\page.instructor-earnings.js" />
+    <Content Include="Content\js\page.student-dashboard.js" />
+    <Content Include="Content\js\page.ui-charts.js" />
+    <Content Include="Content\js\quill.js" />
+    <Content Include="Content\js\settings.js" />
+    <Content Include="Content\js\sweetalert.js" />
+    <Content Include="Content\js\toggle-check-all.js" />
+    <Content Include="Content\js\touchspin.js" />
+    <Content Include="Content\js\vector-maps.js" />
+    <Content Include="Content\vendor\bootstrap.min.js" />
+    <Content Include="Content\vendor\Chart.min.js" />
+    <Content Include="Content\vendor\dom-factory.js" />
+    <Content Include="Content\vendor\dragula\dragula.min.css" />
+    <Content Include="Content\vendor\dragula\dragula.min.js" />
+    <Content Include="Content\vendor\dropzone.min.css" />
+    <Content Include="Content\vendor\dropzone.min.js" />
+    <Content Include="Content\vendor\flatpickr\flatpickr.min.js" />
+    <Content Include="Content\vendor\fullcalendar.min.js" />
+    <Content Include="Content\vendor\jquery-jvectormap.css" />
+    <Content Include="Content\vendor\jquery.bootstrap-touchspin.js" />
+    <Content Include="Content\vendor\jquery.countdown.min.js" />
+    <Content Include="Content\vendor\jquery.fancytree-all.min.js" />
+    <Content Include="Content\vendor\jquery.jvectormap.min.js" />
+    <Content Include="Content\vendor\jquery.mask.min.js" />
+    <Content Include="Content\vendor\jquery.min.js" />
+    <Content Include="Content\vendor\jquery.nestable.js" />
+    <Content Include="Content\vendor\list.min.js" />
+    <Content Include="Content\vendor\material-design-kit.js" />
+    <Content Include="Content\vendor\moment-range.min.js" />
+    <Content Include="Content\vendor\moment.min.js" />
+    <Content Include="Content\vendor\perfect-scrollbar.css" />
+    <Content Include="Content\vendor\perfect-scrollbar.min.js" />
+    <Content Include="Content\vendor\popper.min.js" />
+    <Content Include="Content\vendor\quill.min.js" />
+    <Content Include="Content\vendor\sweetalert.min.js" />
+    <Content Include="Content\vendor\vue.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\js\bootstrap.bundle.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\js\bootstrap.js.map" />
+    <Content Include="Content\js\bootstrap.min.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\New.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppStart\JsAndCssBundlingAppStart.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\Admin.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Migration.cs" />
+    <Compile Include="Models\Auth.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Login.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Login\Auth.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50887</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50887/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
