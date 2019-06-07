@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Collections;
 
 namespace Eogrenme.Areas.Admin.Controllers
 {
@@ -22,9 +23,10 @@ namespace Eogrenme.Areas.Admin.Controllers
 
             return View(model);
         }
+
         public ActionResult New()
         {
-            AdminNew model = new AdminNew()
+            return View(new AdminNew
             {
                 Roles = Database.Session.Query<Role>().Select(role => new RoleCheckBox
                 {
@@ -32,39 +34,52 @@ namespace Eogrenme.Areas.Admin.Controllers
                     IsChecked = false,
                     Name = role.Name
                 }).ToList()
-            };
-            return View(model);
+            });
         }
+
+
         [HttpPost]
         public ActionResult New(AdminNew formData)
         {
-            if (Database.Session.Query<User>().Any(x => x.Username == formData.Username))
-                ModelState.AddModelError("Username", "Username Must Be Unique");
-
-            if (!ModelState.IsValid)
-                return View(formData);
-
-            var user = new User()
+            try
             {
-                Email = formData.Email,
-                PasswordHash = formData.Password,
-                Username = formData.Username
-            };
+                if (Database.Session.Query<User>().Any(x => x.Username == formData.Username))
+                    ModelState.AddModelError("Username", "Username Must Be Unique");
+
+                if (!ModelState.IsValid)
+                    return View(formData);
+
+                var user = new User()
+                {
+                    Email = formData.Email,
+                    PasswordHash = formData.Password,
+                    Username = formData.Username
+                };
+
+                SyncRoles(formData.Roles, user.Roles);
+                user.SetPassword(formData.Password);
+
+                
+                Database.Session.Save(user);
+                Database.Session.Flush();
+                Database.Session.Clear();
+
+                return RedirectToRoute("Panel");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Content("Hata");
+            }
           
-            SyncRoles(formData.Roles, user.Roles);
-            user.SetPassword(formData.Password);
-            Database.Session.Save(user);
-
-
-           
-            return View(formData);
         }
 
 
 
         private void SyncRoles(IList<RoleCheckBox> checkBoxes, IList<Role> roles)
         {
-            var selectedRoles = new List<Role>();
+
+            IList<Role> selectedRoles = new List<Role>();
 
             foreach (var role in Database.Session.Query<Role>())
             {
@@ -76,16 +91,17 @@ namespace Eogrenme.Areas.Admin.Controllers
                     selectedRoles.Add(role);
                 }
             }
+        
             foreach (var toAdd in selectedRoles.Where(t => !roles.Contains(t)))
             {
                 roles.Add(toAdd);
-
             }
             foreach (var toRemove in roles.Where(t => !selectedRoles.Contains(t)).ToList())
             {
                 roles.Add(toRemove);
 
             }
+         
         }
     }
 

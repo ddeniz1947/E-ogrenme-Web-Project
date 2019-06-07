@@ -30,7 +30,7 @@
                 @for (var i = 0; i < Model.Roles.Count; i++)
                 {
                     <li class="list-group-item">
-                        @Html.Hidden("Roles[" + i + "].Id", Model.Roles[i].Id)
+                        @Html.Hidden("Roles[" + i + "].Id", Model.Roles[i].Id)0
                         <label for="Roles_@(i)_IsChecked">
                             @Html.CheckBox("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked)
                             @Model.Roles[i].Name

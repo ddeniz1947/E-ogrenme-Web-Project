@@ -14,7 +14,7 @@ namespace Eogrenme.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapRoute("Admin","adminpage", new { controller="Admin" , action = "Index" });
+            context.MapRoute("Panel","panel", new { controller="Admin" , action = "Index" });
             context.MapRoute("New", "new", new { controller = "Admin", action = "New" });
 
         }

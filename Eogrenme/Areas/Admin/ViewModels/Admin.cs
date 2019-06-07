@@ -10,13 +10,10 @@ namespace Eogrenme.Areas.Admin.ViewModels
     public class AdminIndex
     {
         public IEnumerable<User> Users { get; set; }
+
     }
     public class AdminNew
     {
-        public AdminNew()
-        {
-            Roles = new List<RoleCheckBox>();
-        }
 
         [Required, MaxLength(128)]
         public string Username { get; set; }
