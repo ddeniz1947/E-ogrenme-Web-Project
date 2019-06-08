@@ -13,7 +13,7 @@ using System.Collections;
 namespace Eogrenme.Areas.Admin.Controllers
 {
 
-    public class AdminController : Controller
+    public class AdminsController : Controller
     {
         // GET: Admin/Admin
         public ActionResult Index()
@@ -174,12 +174,12 @@ namespace Eogrenme.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public bool Delete(int id)
+        public ActionResult Delete(int id)
         {
             var user = Database.Session.Load<User>(id);
             if (user == null)
             {
-                return false;
+                return HttpNotFound();
             }
             try
             {
@@ -189,9 +189,9 @@ namespace Eogrenme.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                return false;
+                return HttpNotFound();
             }
-            return true;
+            return RedirectToRoute("panel");
         }
     }
 

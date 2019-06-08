@@ -14,11 +14,11 @@ namespace Eogrenme.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapRoute("Panel","panel", new { controller="Admin" , action = "Index" });
-            context.MapRoute("New", "new", new { controller = "Admin", action = "New" });
-            context.MapRoute("Edit", "edit", new { controller = "Admin", action = "Edit" });
-            context.MapRoute("ResetPassword", "resetpassword", new { controller = "Admin", action = "ResetPassword" });
-            context.MapRoute("Delete", "delete", new { controller = "Admin", action = "Delete" });
+            context.MapRoute("Panel","panel", new { controller="Admins" , action = "Index" });
+            context.MapRoute("New", "new", new { controller = "Admins", action = "New" });
+            context.MapRoute("Edit", "edit", new { controller = "Admins", action = "Edit" });
+            context.MapRoute("ResetPassword", "resetpassword", new { controller = "Admins", action = "ResetPassword" });
+            context.MapRoute("Delete", "delete", new { controller = "Admins", action = "Delete" });
         }
     }
 }

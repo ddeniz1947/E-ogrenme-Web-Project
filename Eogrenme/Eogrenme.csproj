@@ -122,6 +122,7 @@
     <Content Include="Areas\Admin\Scripts\bootstrap.js" />
     <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
     <None Include="Areas\Admin\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\Admin\Scripts\Forms.js" />
     <Content Include="Areas\Admin\Scripts\jquery-1.10.2.js" />
     <Content Include="Areas\Admin\Scripts\jquery-1.10.2.min.js" />
     <Content Include="Areas\Admin\Scripts\modernizr-2.6.2.js" />
@@ -271,10 +272,10 @@
     <Content Include="Areas\Admin\Scripts\jquery-1.10.2.min.map" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\New.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\New.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\ResetPassword.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -288,7 +289,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\ViewModels\Admin.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database.cs" />

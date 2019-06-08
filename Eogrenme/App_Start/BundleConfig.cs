@@ -20,6 +20,7 @@ namespace Eogrenme.App_Start
                   .Include("~/content/css/fontawesome.rtl.css")
                   .Include("~/content/css/app.css")
                   .Include("~/content/css/app.rtl.css")
+                    .Include("~/Areas/Admin/Scripts/Forms.js")
                   );
 
             bundles.Add(new ScriptBundle("~/scripts")
@@ -34,7 +35,14 @@ namespace Eogrenme.App_Start
                 .Include("~/content/js/app-settings.js")
                 .Include("~/content/js/bootstrap.js")
                 .Include("~/content/js/bootstrap.min.js")
+                  .Include("~/Areas/Admin/Scripts/Forms.js")
                  );
+
+            bundles.Add(new ScriptBundle("~/admin")
+              .Include("~/Areas/Admin/Scripts/Forms.js")
+              
+          );
+
         }
     }
 }

@@ -4,9 +4,9 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Roles</th>
+            <th>Kullanıcı Adı</th>
+            <th>E-mail</th>
+            <th>Yetki</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -28,11 +28,11 @@
                             <i class="glyphicon glyphicon-lock"></i>
                             Reset Password
                         </a>
-                        <a class="btn btn-xs btn-primary" onclick="KullaniciSil(@user.Id)">
-                            <i class="glyphicon glyphicon-remove"></i>
-                            Delete
+                        <a href="@Url.Action("delete",new { user.Id})" data-post="@user.Username Kullanıcısını silmek istiyor musunuz? " class="btn btn-xs btn-danger">
+                            <i class="glyphicon glyphicon-remove">
+                            </i>Delete
                         </a>
-
+                     
                     </div>
                 </td>
             </tr>
@@ -42,29 +42,3 @@
 </table>
 
 
-@section scripts {
-    <script>
-        function KullaniciSil(KullaniciID) {
-            if (confirm("Kullanıcı Silinsin mi ?")) {
-
-        $.ajax({
-        type: "POST",
-                    url: "Admin/Delete",
-                    data: { id: KullaniciID },
-                    success: function (data) {
-                        if (data == "True") {
-                            $("#tr_" + KullaniciID).remove();
-                           alert(KullaniciID+" numaralı Id başarıyla silindi...");
-        $("#message").append("<div class='alert alert-info'><strong></strong>Kayıt başarıyla silindi </div>")
-                        }
-                        else {
-                           alert("Hata");
-
-                        }
-                    }
-                });
-            }
-        }
-    </script>
-
-}
