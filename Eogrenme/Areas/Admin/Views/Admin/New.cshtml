@@ -29,10 +29,10 @@
             <ul class="list-group">
                 @for (var i = 0; i < Model.Roles.Count; i++)
                 {
-                    <li class="list-group-item">
-                        @Html.Hidden("Roles[" + i + "].Id", Model.Roles[i].Id)0
+                    <li class="list-group-item" id="deniz">
+                        @Html.Hidden("Roles[" + i + "].Id", Model.Roles[i].Id)
                         <label for="Roles_@(i)_IsChecked">
-                            @Html.CheckBox("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked)
+                            @Html.CheckBox("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked, new { @type = "checkbox" })
                             @Model.Roles[i].Name
                         </label>
                     </li>
@@ -42,8 +42,18 @@
         </div>
 
     </div>
-    <input type="submit" value="Create User" class="btn btn-primary" />
-    <a href="@Url.Action("index")">or cancel</a>
+    <input type="submit" value="Kullanıcı Oluştur" class="btn btn-primary" />
+    <a href="@Url.RouteUrl("Panel")">Ya da İptal Et</a>
 
 
 }
+<script type="text/javascript" language="javascript">
+        $(':checkbox').click(function(e){
+    if($(this).is(':checked')){
+        $(':checked').prop('checked', false);
+        $(this).prop('checked', true);
+
+    }
+
+});
+</script>

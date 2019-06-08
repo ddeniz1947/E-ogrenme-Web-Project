@@ -40,3 +40,31 @@
     </tbody>
 
 </table>
+
+
+@section scripts {
+    <script>
+        function KullaniciSil(KullaniciID) {
+            if (confirm("Kullanıcı Silinsin mi ?")) {
+
+        $.ajax({
+        type: "POST",
+                    url: "Admin/Delete",
+                    data: { id: KullaniciID },
+                    success: function (data) {
+                        if (data == "True") {
+                            $("#tr_" + KullaniciID).remove();
+                           alert(KullaniciID+" numaralı Id başarıyla silindi...");
+        $("#message").append("<div class='alert alert-info'><strong></strong>Kayıt başarıyla silindi </div>")
+                        }
+                        else {
+                           alert("Hata");
+
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+
+}

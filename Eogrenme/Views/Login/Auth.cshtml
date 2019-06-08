@@ -23,7 +23,7 @@
 
                     <form action="student-dashboard.html" novalidate method="get">
                         <div class="form-group">
-                            <label class="form-label" for="email">Your email address:</label>
+                            <label class="form-label" for="email">Kullanıcı Adı</label>
                             <div class="input-group input-group-merge">
                                 <!-- <input id="email" type="email" required="" class="form-control form-control-prepended" placeholder="Your email address">-->
                                 @Html.TextBoxFor(x => x.Username, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
@@ -35,10 +35,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="password">Your password:</label>
+                            <label class="form-label" for="password">Parola</label>
                             <div class="input-group input-group-merge">
                                 <!-- <input id="password" type="password" required="" class="form-control form-control-prepended" placeholder="Your password">-->
-                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Parola" })
+                                @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Parola" })
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <span class="fas fa-key"></span>
@@ -47,17 +47,13 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
                         </div>
-                        <div class="text-center">
-                            <a href="guest-forgot-password.html" class="text-black-70" style="text-decoration: underline;">Forgot Password?</a>
-                        </div>
+                       
                     </form>
                 }
             </div>
-            <div class="card-footer text-center text-black-50">
-                Not yet a student? <a href="@Url.RouteUrl("Reg")">Sign Up</a>
-            </div>
+           
         </div>
     </div>
 </div>

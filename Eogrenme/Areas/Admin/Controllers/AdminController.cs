@@ -59,7 +59,7 @@ namespace Eogrenme.Areas.Admin.Controllers
                 SyncRoles(formData.Roles, user.Roles);
                 user.SetPassword(formData.Password);
 
-                
+
                 Database.Session.Save(user);
                 Database.Session.Flush();
                 Database.Session.Clear();
@@ -71,7 +71,7 @@ namespace Eogrenme.Areas.Admin.Controllers
                 Console.WriteLine(ex.Message);
                 return Content("Hata");
             }
-          
+
         }
 
 
@@ -91,7 +91,7 @@ namespace Eogrenme.Areas.Admin.Controllers
                     selectedRoles.Add(role);
                 }
             }
-        
+
             foreach (var toAdd in selectedRoles.Where(t => !roles.Contains(t)))
             {
                 roles.Add(toAdd);
@@ -101,7 +101,97 @@ namespace Eogrenme.Areas.Admin.Controllers
                 roles.Add(toRemove);
 
             }
-         
+
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var user = Database.Session.Load<User>(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new AdminEdit
+            {
+                Username = user.Username,
+                Email = user.Email
+            });
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, AdminEdit form)
+        {
+            var user = Database.Session.Get<User>(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            if (Database.Session.Query<User>().Any(u => u.Username == form.Username && u.Id != id))
+                ModelState.AddModelError("Kullanıcı Adı", "Kullanıcı adı benzersiz olmalıdır");
+            if (!ModelState.IsValid)
+                return View(form);
+            user.Username = form.Username;
+            user.Email = form.Email;
+
+            Database.Session.Update(user);
+            Database.Session.Flush();
+            Database.Session.Clear();
+
+            return RedirectToRoute("Panel");
+        }
+
+        public ActionResult ResetPassword(int id)
+        {
+            var user = Database.Session.Load<User>(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new AdminResetPassword()
+            {
+                Username = user.Username
+            });
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(int id, AdminResetPassword formData)
+        {
+            var user = Database.Session.Get<User>(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            formData.Username = user.Username;
+
+            if (!ModelState.IsValid)
+                return View(formData);
+            user.SetPassword(formData.Password);
+
+            Database.Session.Update(user);
+            Database.Session.Flush();
+            Database.Session.Clear();
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        public bool Delete(int id)
+        {
+            var user = Database.Session.Load<User>(id);
+            if (user == null)
+            {
+                return false;
+            }
+            try
+            {
+                Database.Session.Delete(user);
+                Database.Session.Flush();
+                Database.Session.Clear();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
     }
 

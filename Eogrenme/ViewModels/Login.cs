@@ -9,12 +9,12 @@ namespace Eogrenme.ViewModels
     public class LoginAuth
     {
        
-        [MaxLength(10)]
+        [MaxLength(40)]
         [Required(ErrorMessage = "Username alanı için bilgi giriniz")]
         public string Username { get; set; }
 
        
-        [MaxLength(10)]
+        [MaxLength(40)]
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }

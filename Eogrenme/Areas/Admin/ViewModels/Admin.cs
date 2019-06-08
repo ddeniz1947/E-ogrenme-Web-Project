@@ -33,4 +33,20 @@ namespace Eogrenme.Areas.Admin.ViewModels
         public string Name { get; set; }
     }
 
+    public class AdminEdit
+    {
+        [Required, MaxLength(256),DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        [Required,MaxLength(128)]
+        public string Username { get; set; }
+        public IList<RoleCheckBox> Roles { get; set; }
+    }
+
+    public class AdminResetPassword
+    {
+        public string Username { get; set; }
+
+        [Required, DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
 }

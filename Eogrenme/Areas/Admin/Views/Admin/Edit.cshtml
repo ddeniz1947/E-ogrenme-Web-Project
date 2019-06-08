@@ -1,0 +1,24 @@
+﻿@model Eogrenme.Areas.Admin.ViewModels.AdminEdit
+@{
+    ViewBag.Title = "AdminEdit";
+}
+
+<h2 class="display-4">Kullanıcıları Güncelle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+<div class="form-group">
+    @Html.LabelFor(x => x.Username)
+    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+</div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email" })
+    </div>
+
+    <input type="submit" value="Kullanıcıyı Güncelle" class="btn btn-primary" />
+    <a href="@Url.RouteUrl("Panel")">Ya da İptal Et</a>
+}
