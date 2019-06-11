@@ -157,18 +157,12 @@
     <Content Include="Content\data\vector-maps\custom\jquery-jvectormap-world-mill-en.js" />
     <Content Include="Content\data\vector-maps\custom\mall-map.js" />
     <Content Include="Content\data\vector-maps\data\gdp-data.js" />
-    <Content Include="Content\images\256_rsz_90-jiang-640827-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_clem-onojeghuo-150467-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_florian-perennes-594195-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_james-gillespie-714755-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_karl-s-973833-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_nicolas-horn-689011-unsplash.jpg" />
-    <Content Include="Content\images\256_rsz_sharina-mae-agellon-377466-unsplash.jpg" />
+    <Content Include="Content\images\banner1.jpg" />
     <Content Include="Content\images\github.png" />
     <Content Include="Content\images\gulp.png" />
+    <Content Include="Content\images\indir.jpg" />
     <Content Include="Content\images\logo\primary.svg" />
     <Content Include="Content\images\logo\white.svg" />
-    <Content Include="Content\images\nodejs.png" />
     <Content Include="Content\images\people\110\guy-6.jpg" />
     <Content Include="Content\images\people\110\guy-8.jpg" />
     <Content Include="Content\images\people\110\guy-9.jpg" />
@@ -184,8 +178,7 @@
     <Content Include="Content\images\stories\256_rsz_phil-hearing-769014-unsplash.jpg" />
     <Content Include="Content\images\stories\256_rsz_ross-sneddon-798476-unsplash.jpg" />
     <Content Include="Content\images\stories\256_rsz_thomas-russell-751613-unsplash.jpg" />
-    <Content Include="Content\images\visa.svg" />
-    <Content Include="Content\images\vuejs.png" />
+    <Content Include="Content\images\wp2140467.jpg" />
     <Content Include="Content\js\app-icons.js" />
     <Content Include="Content\js\app-settings.js" />
     <Content Include="Content\js\app.js" />
@@ -291,13 +284,15 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\ViewModels\Admin.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Login.cs" />
+    <Compile Include="Infrastructure\RoleProvider.cs" />
     <Compile Include="Migrations\Migration.cs" />
-    <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +308,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Auth.cshtml" />
+    <Content Include="Views\AdminLogin\Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

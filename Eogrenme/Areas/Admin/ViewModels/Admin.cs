@@ -7,6 +7,7 @@ using System.Web;
 
 namespace Eogrenme.Areas.Admin.ViewModels
 {
+
     public class AdminIndex
     {
         public IEnumerable<User> Users { get; set; }
@@ -23,11 +24,18 @@ namespace Eogrenme.Areas.Admin.ViewModels
 
         [Required, MaxLength(256), DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+       // [Required]
         public IList<RoleCheckBox> Roles { get; set; }
+
+        [Required]
+        public int  RoleID { get; set; }
+    
     }
 
     public class RoleCheckBox
     {
+        [Required]
         public int Id { get; set; }
         public bool IsChecked { get; set; }
         public string Name { get; set; }
@@ -35,9 +43,9 @@ namespace Eogrenme.Areas.Admin.ViewModels
 
     public class AdminEdit
     {
-        [Required, MaxLength(256),DataType(DataType.EmailAddress)]
+        [Required, MaxLength(256), DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required,MaxLength(128)]
+        [Required, MaxLength(128)]
         public string Username { get; set; }
         public IList<RoleCheckBox> Roles { get; set; }
     }

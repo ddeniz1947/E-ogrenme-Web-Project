@@ -20,20 +20,22 @@
 
     <div class="form-group">
         @Html.LabelFor(x => x.Password)
-        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
     </div>
-
     <div class="panel panel-default">
         <div class="panel-heading">Roles</div>
         <div class="panel-body">
             <ul class="list-group">
+             
                 @for (var i = 0; i < Model.Roles.Count; i++)
                 {
-                    <li class="list-group-item" id="deniz">
+                    <li class="list-group-item">
                         @Html.Hidden("Roles[" + i + "].Id", Model.Roles[i].Id)
                         <label for="Roles_@(i)_IsChecked">
-                            @Html.CheckBox("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked, new { @type = "checkbox" })
-                            @Model.Roles[i].Name
+                            <input type="radio" name="RoleID" value="@Model.Roles[i].Id">  @Model.Roles[i].Name<br>
+                            
+                            @*@Html.RadioButton("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked, new { @Name = "Group" })
+                            @Model.Roles[i].Name*@
                         </label>
                     </li>
                 }
@@ -42,19 +44,9 @@
         </div>
 
     </div>
+
     <input type="submit" value="Kullanıcı Oluştur" class="btn btn-primary" />
     <a href="@Url.RouteUrl("Panel")">Ya da İptal Et</a>
 
 
 }
-
-<script type="text/javascript" language="javascript">
-        $(':checkbox').click(function(e){
-    if($(this).is(':checked')){
-        $(':checked').prop('checked', false);
-        $(this).prop('checked', true);
-
-    }
-
-});
-</script>

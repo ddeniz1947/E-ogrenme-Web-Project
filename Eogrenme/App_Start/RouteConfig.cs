@@ -12,9 +12,11 @@ namespace Eogrenme
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute("Reg", "reg", new { controller = "Register", action = "Reg", id = UrlParameter.Optional });
+            
             routes.MapRoute("Login" , "", new { controller = "Login", action = "Auth", id = UrlParameter.Optional });
+            routes.MapRoute("Home", "home", new { controller = "AdminLogin", action = "Page", id = UrlParameter.Optional });
+            routes.MapRoute("Logout", "logout", new { controller = "Login", action = "Logout", id = UrlParameter.Optional });
+
         }
     }
 }

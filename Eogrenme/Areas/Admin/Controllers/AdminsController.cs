@@ -13,8 +13,11 @@ using System.Collections;
 namespace Eogrenme.Areas.Admin.Controllers
 {
 
+    [Authorize(Roles = "admin")]
+
     public class AdminsController : Controller
     {
+        [Authorize(Roles = "admin")]
         // GET: Admin/Admin
         public ActionResult Index()
         {
@@ -47,17 +50,39 @@ namespace Eogrenme.Areas.Admin.Controllers
                     ModelState.AddModelError("Username", "Username Must Be Unique");
 
                 if (!ModelState.IsValid)
+                {
+                    formData.Roles = Database.Session.Query<Role>().Select(role => new RoleCheckBox
+                    {
+                        Id = role.Id,
+                        IsChecked = false,
+                        Name = role.Name
+                    }).ToList();
                     return View(formData);
+                }
+
 
                 var user = new User()
                 {
                     Email = formData.Email,
                     PasswordHash = formData.Password,
-                    Username = formData.Username
+                    Username = formData.Username,
+
                 };
 
+                for (int i = 0; i < formData.Roles.Count; i++)
+                {
+                    if (formData.Roles[i].Id.Equals(formData.RoleID))
+                    {
+                        formData.Roles[i].IsChecked = true;
+                    }
+                }
+              
+
+                //formData.Roles = Database.Session.Query<Role>().Where(x => x.Id.Equals(formData.RoleID)).ToList();
                 SyncRoles(formData.Roles, user.Roles);
                 user.SetPassword(formData.Password);
+
+
 
 
                 Database.Session.Save(user);

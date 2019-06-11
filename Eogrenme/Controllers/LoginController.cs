@@ -15,6 +15,7 @@ namespace Eogrenme.Controllers
         // GET: Login
         public ActionResult Auth()
         {
+
             return View();
         }
 
@@ -43,7 +44,12 @@ namespace Eogrenme.Controllers
                 return Redirect(returnUrl);
             }
 
-            return Content("Giris Yapildi");
+            return RedirectToRoute("Home");
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("Login");
         }
         
     }

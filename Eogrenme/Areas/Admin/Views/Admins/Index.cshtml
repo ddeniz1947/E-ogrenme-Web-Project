@@ -22,15 +22,15 @@
                     <div class="btn-group">
                         <a href="@Url.Action("edit",new { user.Id })" class="btn btn-xs btn-primary">
                             <i class="glyphicon glyphicon-edit"></i>
-                            Edit
+                            Değişiklik Yap
                         </a>
                         <a href="@Url.Action("resetpassword",new { user.Id })" class="btn btn-xs btn-primary">
                             <i class="glyphicon glyphicon-lock"></i>
-                            Reset Password
+                            Parolayı Resetle
                         </a>
                         <a href="@Url.Action("delete",new { user.Id})" data-post="@user.Username Kullanıcısını silmek istiyor musunuz? " class="btn btn-xs btn-danger">
                             <i class="glyphicon glyphicon-remove">
-                            </i>Delete
+                            </i>Sil
                         </a>
                      
                     </div>

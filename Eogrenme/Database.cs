@@ -14,7 +14,7 @@ namespace Eogrenme
     {
 
 
-        private const string SessionKey = "SBlogA.Database.SessionKey";
+        private const string SessionKey = "Eogrenme.Database.SessionKey";
 
         private static ISessionFactory _sessiongFactory;
         public static ISession Session
