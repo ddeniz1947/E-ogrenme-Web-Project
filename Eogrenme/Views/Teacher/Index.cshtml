@@ -1,0 +1,53 @@
+﻿
+
+@using Eogrenme.Models
+
+@{
+
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kullanıcı Adı</th>
+            <th>E-mail</th>
+            <th>Yetki</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in ViewData["ogrenciler"] as List<User>)
+        {
+            <tr id="@user.Id">
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@String.Join(", ", user.Roles.Select(p => p.Name))</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("OgrenciEdit",new { user.Id })" class="btn btn-xs btn-primary">
+                            <i class="glyphicon glyphicon-edit"></i>
+                            Değişiklik Yap
+                        </a>
+                        <a href="@Url.Action("OgrenciResetPassword",new { user.Id })" class="btn btn-xs btn-primary">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            Parolayı Resetle
+                        </a>
+                        <a href="@Url.Action("OgrenciDelete",new { user.Id})" data-post="@user.Username Kullanıcısını silmek istiyor musunuz? " class="btn btn-xs btn-danger">
+                            <i class="glyphicon glyphicon-remove">
+                            </i>Sil
+                        </a>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+

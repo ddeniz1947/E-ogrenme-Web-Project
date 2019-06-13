@@ -11,23 +11,37 @@
 
 <center>
 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <h3 class="display-4">Hoşgeldiniz Sayın @User.Identity.Name</h3>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h3 class="display-4">Hoşgeldiniz Sayın @User.Identity.Name</h3>
 
-                    <button class="btn btn-outline-primary"> <a href="@Url.RouteUrl("logout")">Çıkış Yap</a></button>  
+        <a class="btn btn-outline-primary" href="@Url.RouteUrl("logout")">Çıkış Yap</a>
 
-                    <br />
-                    <hr />
+        <br />
+        <hr />
 
-                    if (User.IsInRole("admin"))
-                    {
-                        <button class="btn btn-outline-primary">
-                            <a href=" @Url.RouteUrl("panel")">Panele Gitmek İçin Tıklayınız.</a>
-                        </button>
+        if (User.IsInRole("admin"))
+        {
+            <button class="btn btn-outline-primary">
+                <a href=" @Url.RouteUrl("panel")">Admin Paneline Gitmek İçin Tıklayınız.</a>
+            </button>
 
-                    }
+        }
 
-                }
+        if (User.IsInRole("öğretmen"))
+        {
+            <button class="btn btn-outline-primary">
+                <a href=" @Url.RouteUrl("teacher")">Öğretmen Paneline Gitmek İçin Tıklayınız.</a>
+            </button>
+        }
+
+        if (User.IsInRole("öğrenci"))
+        {
+            <button class="btn btn-outline-primary">
+                <a href=" @Url.RouteUrl("panel")">öğrenci Paneline Gitmek İçin Tıklayınız.</a>
+            </button>
+        }
+
+    }
 
 </center>  

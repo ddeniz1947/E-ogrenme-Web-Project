@@ -16,6 +16,13 @@ namespace Eogrenme
             routes.MapRoute("Login" , "", new { controller = "Login", action = "Auth", id = UrlParameter.Optional });
             routes.MapRoute("Home", "home", new { controller = "AdminLogin", action = "Page", id = UrlParameter.Optional });
             routes.MapRoute("Logout", "logout", new { controller = "Login", action = "Logout", id = UrlParameter.Optional });
+            routes.MapRoute("Teacher", "teacher", new { controller = "Teacher", action = "Index", id = UrlParameter.Optional });
+            routes.MapRoute("OgrenciNew", "ogrencinew", new { controller = "Teacher", action = "OgrenciNew", id = UrlParameter.Optional });
+            routes.MapRoute("OgrenciEdit", "OgrenciEdit", new { controller = "Teacher", action = "OgrenciEdit" });
+            routes.MapRoute("OgrenciResetPassword", "OgrenciResetPassword", new { controller = "Teacher", action = "OgrenciResetPassword" });
+            routes.MapRoute("OgrenciDelete", "OgrenciDelete", new { controller = "Teacher", action = "OgrenciDelete" });
+
+
 
         }
     }

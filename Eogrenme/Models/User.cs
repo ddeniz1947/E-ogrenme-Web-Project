@@ -1,4 +1,5 @@
-﻿using NHibernate.Mapping.ByCode;
+﻿using NHibernate.Linq;
+using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,8 @@ namespace Eogrenme.Models
         public virtual string PasswordHash { get; set; }
         public virtual string Email { get; set; }
         public virtual IList<Role> Roles { get; set; }
-       
 
+      
         public User()
         {
             Roles = new List<Role>();
@@ -35,6 +36,13 @@ namespace Eogrenme.Models
             return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
         }
         
+    }
+
+    public class RoleId
+    {
+        
+        public int Id { get; set; }
+     
     }
 
     public class UserMap : ClassMapping<User>

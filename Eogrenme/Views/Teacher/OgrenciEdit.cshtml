@@ -1,0 +1,29 @@
+﻿
+@model Eogrenme.ViewModels.OgrenciEdit
+
+@{
+  
+        ViewBag.Title = "OgrenciEdit";
+   
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2 class="display-4">@Model.Username Adlı Öğrenciyi Güncelle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Username)
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email" })
+    </div>
+
+    <input type="submit" value="Öğrenciyi Güncelle" class="btn btn-primary" />
+    <a href="@Url.RouteUrl("Teacher")">Ya da İptal Et</a>
+}
